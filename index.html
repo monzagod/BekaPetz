@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Bekapetz — banho e tosa com amor, cuidado e carinho.">
+  <title>Bekapetz | Banho e Tosa</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700;800&family=Quicksand:wght@600;700&display=swap" rel="stylesheet">
+  <style>
+    :root { --chocolate:#48240f; --brown:#704019; --caramel:#c97816; --gold:#edaa3a; --cream:#fffaf3; --beige:#f8eddd; --line:#ecd8bd; --ink:#352117; --green:#25d366; --white:#fff; --shadow:0 14px 40px rgba(89,47,15,.12); }
+    * { box-sizing:border-box; }
+    html { scroll-behavior:smooth; }
+    body { margin:0; color:var(--ink); background:var(--cream); font-family:Poppins,Arial,sans-serif; line-height:1.55; }
+    button,a { font:inherit; }
+    a { color:inherit; text-decoration:none; }
+    .wrap { max-width:1180px; margin:auto; padding:0 24px; }
+    .topbar { background:var(--chocolate); color:#fbe9cf; font-size:.82rem; }
+    .topbar .wrap { min-height:38px; display:flex; justify-content:space-between; align-items:center; gap:10px; }
+    header { position:sticky; top:0; z-index:20; background:rgba(255,250,243,.94); backdrop-filter:blur(12px); border-bottom:1px solid rgba(236,216,189,.7); }
+    nav { height:76px; display:flex; align-items:center; justify-content:space-between; gap:20px; }
+    .brand { display:flex; align-items:center; gap:9px; font:800 clamp(1.55rem,4vw,2rem) Quicksand,sans-serif; color:var(--chocolate); letter-spacing:-1px; }
+    .brand-logo { width:52px; height:52px; object-fit:contain; border-radius:50%; mix-blend-mode:multiply; }
+    .paw { color:var(--caramel); font-size:1.45em; line-height:1; }
+    .navlinks { display:flex; gap:22px; align-items:center; font-size:.88rem; font-weight:600; }
+    .navlinks a:hover { color:var(--caramel); }
+    .nav-cta,.primary { border:0; cursor:pointer; display:inline-flex; align-items:center; justify-content:center; gap:9px; font-weight:700; border-radius:100px; color:#fff; background:var(--caramel); box-shadow:0 7px 15px rgba(201,120,22,.25); transition:.25s transform,.25s background,.25s box-shadow; }
+    .nav-cta { padding:10px 16px; font-size:.82rem; }
+    .primary { padding:13px 20px; }
+    .nav-cta:hover,.primary:hover { transform:translateY(-2px); background:#ac5e0c; box-shadow:0 10px 19px rgba(201,120,22,.28); }
+    .hero { overflow:hidden; position:relative; padding:76px 0 66px; background:linear-gradient(118deg,#fffaf3 0%,#fff4e4 68%,#f7e5cc 100%); }
+    .hero::after { content:"✦  •  ✦"; position:absolute; right:3%; top:12%; color:var(--gold); font-size:1.5rem; letter-spacing:9px; opacity:.7; }
+    .hero-paws { position:absolute; inset:0; z-index:0; pointer-events:none; overflow:hidden; opacity:.12; }
+    .walking-paw { position:absolute; top:79%; width:180px; height:180px; object-fit:contain; mix-blend-mode:multiply; animation:pawWalk 16s linear infinite; }
+    .walking-paw:nth-child(1) { left:22%; animation-delay:0s; } .walking-paw:nth-child(2) { left:31%; animation-delay:2.8s; } .walking-paw:nth-child(3) { left:22%; animation-delay:5.6s; }
+    @keyframes pawWalk { 0% { transform:translateY(0) rotate(-12deg) scale(.76); opacity:0; } 10% { opacity:1; } 50% { transform:translateY(-47vh) rotate(10deg) scale(1); } 88% { opacity:1; } 100% { transform:translateY(-105vh) rotate(-10deg) scale(.82); opacity:0; } }
+    .hero-grid { position:relative; z-index:1; display:grid; grid-template-columns:1.15fr .85fr; align-items:center; gap:45px; }
+    .eyebrow { display:inline-flex; align-items:center; gap:7px; color:var(--brown); font-weight:700; font-size:.78rem; letter-spacing:1.2px; text-transform:uppercase; }
+    h1,h2,h3 { font-family:Quicksand,Poppins,sans-serif; line-height:1.13; margin:0; }
+    h1 { max-width:690px; margin:12px 0 17px; color:var(--chocolate); font-size:clamp(2.45rem,5.4vw,4.35rem); letter-spacing:-2px; }
+    h1 span { color:var(--caramel); }
+    .hero p { max-width:560px; margin:0 0 28px; color:#705848; font-size:1.04rem; }
+    .hero-actions { display:flex; flex-wrap:wrap; align-items:center; gap:18px; }
+    .soft-link { color:var(--brown); font-size:.88rem; font-weight:700; }
+    .hero-photo { position:relative; margin:auto; width:min(100%,380px); aspect-ratio: .86; border-radius:48% 48% 40% 40%; overflow:hidden; box-shadow:var(--shadow); border:8px solid rgba(255,255,255,.72); }
+    .hero-photo img { width:100%; height:100%; object-fit:cover; object-position:center 34%; }
+    section { padding:82px 0; }
+    .section-head { text-align:center; max-width:650px; margin:0 auto 38px; }
+    .section-head h2 { color:var(--chocolate); font-size:clamp(1.85rem,4vw,2.7rem); margin:7px 0 10px; }
+    .section-head p { margin:0; color:#765f51; font-size:.95rem; }
+    .services { background:var(--white); }
+    .service-grid { display:grid; grid-template-columns:repeat(2,minmax(0,1fr)); gap:22px; }
+    .service-card { border:1px solid var(--line); border-radius:22px; padding:25px; background:linear-gradient(145deg,#fffdf9,#fff7ec); box-shadow:0 8px 25px rgba(80,43,17,.045); }
+    .service-card.wide { grid-column:span 2; }
+    .service-title { display:flex; align-items:flex-start; gap:13px; margin-bottom:19px; }
+    .service-icon { flex:0 0 40px; width:40px; height:40px; display:grid; place-items:center; color:var(--caramel); background:#ffedcf; border-radius:12px; font-size:1.25rem; }
+    .service-title h3 { font-size:1.15rem; color:var(--chocolate); }
+    .service-title small { display:block; margin-top:2px; color:var(--caramel); font-size:.8rem; font-weight:700; }
+    .options { display:grid; gap:9px; }
+    .service-option { display:grid; grid-template-columns:1fr auto auto; gap:12px; align-items:center; padding:9px 0; border-top:1px solid #f0e2d1; font-size:.9rem; }
+    .options .service-option:first-child { border-top:0; }
+    .price { color:var(--chocolate); font-weight:800; white-space:nowrap; }
+    .add { border:0; cursor:pointer; width:31px; height:31px; display:grid; place-items:center; border-radius:50%; color:#fff; background:var(--brown); font-size:1.25rem; line-height:1; transition:.2s; }
+    .add:hover { background:var(--caramel); transform:scale(1.12); }
+    .note { margin:0; padding:13px 14px; border-radius:12px; color:#735744; background:#fff0d9; font-size:.81rem; }
+    .extra-options { grid-template-columns:repeat(3,1fr); gap:14px; }
+    .extra-options .service-option { grid-template-columns:1fr auto; align-content:start; padding:3px 0 3px 13px; border-top:0; border-left:1px dashed #dec5a6; }
+    .extra-options .service-option:first-child { border-left:0; padding-left:0; }
+    .extra-options .add { grid-row:span 2; align-self:center; }
+    .extra-options .service-option > span { display:flex; flex-direction:column; align-items:center; gap:8px; color:var(--chocolate); font-weight:700; text-align:center; }
+    .extra-icon { display:grid; place-items:center; width:52px; height:52px; color:var(--brown); border:1px solid #edd6b4; border-radius:50%; background:#fff0da; font-size:1.45rem; box-shadow:inset 0 1px 0 rgba(255,255,255,.85); }
+    .benefits { background:var(--beige); }
+    .benefit-grid { display:grid; grid-template-columns:1fr 1fr .85fr; gap:20px; }
+    .benefit-card { border-radius:20px; padding:27px; background:#fffaf2; }
+    .benefit-card h3 { color:var(--brown); font-size:1.1rem; margin-bottom:16px; }
+    .check-list { padding:0; margin:0; list-style:none; font-size:.9rem; }
+    .check-list li { display:flex; gap:9px; align-items:center; padding:5px 0; }
+    .check-list li::before { content:'✓'; font-weight:800; color:var(--caramel); }
+    .family { display:grid; place-items:center; text-align:center; color:var(--chocolate); background:var(--chocolate); background-image:radial-gradient(circle at 20% 10%,#805020,transparent 42%); }
+    .family .paw { color:#f6c56e; font-size:2.4rem; }
+    .family p { color:#fff6ea; margin:8px 0 0; font:700 1.25rem Quicksand,sans-serif; line-height:1.28; }
+    .bath-advantages { overflow:hidden; position:relative; background:#fffaf3; }
+    .bath-advantages::before { content:'🐶'; position:absolute; right:5%; top:8%; font-size:7rem; opacity:.06; transform:rotate(-12deg); }
+    .advantage-grid { display:grid; grid-template-columns:repeat(4,1fr); gap:17px; }
+    .advantage { min-height:210px; padding:25px 20px; border:1px solid var(--line); border-radius:20px; background:#fff; box-shadow:0 10px 25px rgba(80,43,17,.055); transition:transform .25s,box-shadow .25s; }
+    .advantage:hover { transform:translateY(-7px); box-shadow:var(--shadow); }
+    .advantage-icon { display:grid; place-items:center; width:55px; height:55px; margin-bottom:16px; border-radius:17px; background:#fff0d8; font-size:1.8rem; }
+    .advantage h3 { margin-bottom:8px; color:var(--chocolate); font-size:1.05rem; }
+    .advantage p { margin:0; color:#705b4c; font-size:.82rem; }
+    .gallery { background:var(--white); }
+    .gallery-grid { display:grid; grid-template-columns:1.05fr .85fr .85fr 1.05fr; gap:16px; }
+    .gallery-item { min-height:265px; position:relative; overflow:hidden; border-radius:20px; background:#ead8bf; }
+    .gallery-item img { width:100%; height:100%; position:absolute; inset:0; object-fit:cover; transition:transform .5s ease; }
+    .gallery-item:hover img { transform:scale(1.06); }
+    .gallery-item:nth-child(2),.gallery-item:nth-child(3) { min-height:220px; }
+    .gallery-label { position:absolute; left:12px; bottom:12px; margin:0; padding:6px 11px; color:#fff; background:rgba(55,28,12,.72); border-radius:100px; font-size:.72rem; font-weight:700; backdrop-filter:blur(5px); }
+    .story { background:linear-gradient(135deg,#704019,#43230f); color:#fff; }
+    .story-grid { display:grid; grid-template-columns:.8fr 1.2fr; gap:55px; align-items:center; }
+    .story h2 { font-size:clamp(2rem,4vw,3rem); }
+    .story .eyebrow { color:#f7c46a; }
+    .story-text { color:#f7e5ce; font-size:.95rem; }
+    .story-card { border:1px dashed rgba(255,235,200,.65); border-radius:18px; padding:25px; color:#ffe9c9; }
+    .story-card strong { color:#ffc765; }
+    footer { padding:48px 0 90px; color:#f7e6cf; background:#2e180b; }
+    .footer-grid { display:grid; grid-template-columns:1.25fr 1fr 1fr; gap:32px; }
+    footer .brand { color:#fff4e5; margin-bottom:9px; }
+    footer .brand-logo { background:#fffaf3; }
+    footer p { margin:0; font-size:.86rem; color:#dcbf9e; }
+    .footer-title { display:block; margin-bottom:8px; color:#f5c573; font-weight:700; font-size:.8rem; text-transform:uppercase; letter-spacing:.8px; }
+    .footer-link { display:inline-block; margin:3px 0; font-size:.92rem; }
+    .footer-link:hover { color:#f5c573; }
+    .cart-toggle { position:fixed; z-index:30; right:24px; bottom:89px; display:flex; align-items:center; gap:10px; padding:12px 15px; border:0; cursor:pointer; border-radius:100px; color:#fff; background:var(--chocolate); box-shadow:0 11px 25px rgba(55,27,10,.28); font-weight:700; }
+    .cart-toggle.added { animation:cartJoy .55s cubic-bezier(.25,.8,.35,1); }
+    @keyframes cartJoy { 0%,100% { transform:translateX(0) rotate(0) scale(1); } 18% { transform:translateY(-8px) rotate(-5deg) scale(1.06); } 38% { transform:translateY(0) rotate(5deg) scale(1.03); } 58% { transform:translateY(-4px) rotate(-3deg); } 78% { transform:translateX(3px) rotate(2deg); } }
+    .cart-count { display:grid; place-items:center; min-width:22px; height:22px; padding:0 5px; border-radius:50%; color:var(--chocolate); background:#f6c56e; font-size:.72rem; }
+    .cart-panel { position:fixed; z-index:40; top:0; right:0; width:min(100%,390px); height:100dvh; display:flex; flex-direction:column; background:#fffdf9; box-shadow:-16px 0 45px rgba(39,20,8,.2); transform:translateX(105%); transition:transform .32s ease; }
+    .cart-panel.open { transform:translateX(0); }
+    .cart-head { padding:25px; display:flex; align-items:center; justify-content:space-between; color:#fff; background:var(--chocolate); }
+    .cart-head h2 { font-size:1.35rem; }
+    .close { border:0; cursor:pointer; width:35px; height:35px; border-radius:50%; color:#fff; background:rgba(255,255,255,.13); font-size:1.4rem; }
+    .cart-items { flex:1; padding:16px 22px; overflow-y:auto; }
+    .empty { margin-top:40px; color:#927765; text-align:center; }
+    .cart-item { display:grid; grid-template-columns:1fr auto; gap:6px; padding:15px 0; border-bottom:1px solid var(--line); }
+    .cart-item b { font-size:.88rem; }
+    .cart-item span { color:var(--brown); font-size:.82rem; font-weight:700; }
+    .remove { grid-column:2; grid-row:1 / span 2; align-self:center; border:0; cursor:pointer; width:29px; height:29px; color:#a0613a; background:#ffefdf; border-radius:50%; font-size:1.05rem; }
+    .cart-footer { padding:20px 22px 28px; border-top:1px solid var(--line); }
+    .total { display:flex; align-items:center; justify-content:space-between; margin-bottom:15px; font-size:.94rem; }
+    .total strong { font-size:1.26rem; color:var(--chocolate); }
+    .finish { width:100%; }
+    .whatsapp { position:fixed; z-index:30; right:24px; bottom:22px; display:grid; place-items:center; width:52px; height:52px; color:#fff; background:var(--green); border-radius:50%; box-shadow:0 8px 20px rgba(37,211,102,.35); transition:.2s transform; }
+    .whatsapp:hover { transform:scale(1.08); }
+    .whatsapp svg { width:27px; height:27px; fill:currentColor; }
+    .toast { position:fixed; z-index:60; left:50%; bottom:28px; padding:11px 18px; color:#fff; background:var(--chocolate); border-radius:100px; font-size:.84rem; box-shadow:var(--shadow); transform:translate(-50%,120px); opacity:0; transition:.3s; }
+    .toast.show { transform:translate(-50%,0); opacity:1; }
+    .reveal { opacity:0; transform:translateY(24px); transition:opacity .65s ease,transform .65s ease; }
+    .reveal.visible { opacity:1; transform:translateY(0); }
+    @media (max-width:800px) { .navlinks { display:none; } .hero { padding:57px 0 50px; } .hero-grid,.story-grid { grid-template-columns:1fr; gap:34px; } .hero-photo { order:-1; width:225px; } .benefit-grid { grid-template-columns:1fr 1fr; } .family { grid-column:span 2; min-height:180px; } .advantage-grid { grid-template-columns:1fr 1fr; } .gallery-grid { grid-template-columns:repeat(2,1fr); } .footer-grid { grid-template-columns:1fr 1fr; } }
+    @media (max-width:560px) { .wrap { padding:0 17px; } .topbar .wrap { justify-content:center; } .topbar span:last-child { display:none; } nav { height:67px; } .nav-cta { padding:9px 12px; } section { padding:60px 0; } .walking-paw { width:130px; height:130px; } .service-grid { grid-template-columns:1fr; } .service-card.wide { grid-column:span 1; } .service-card { padding:20px; } .extra-options { grid-template-columns:1fr; } .extra-options .service-option,.extra-options .service-option:first-child { padding:9px 0; border-left:0; border-top:1px dashed #dec5a6; } .extra-options .service-option:first-child { border-top:0; } .benefit-grid,.advantage-grid { grid-template-columns:1fr; } .family { grid-column:span 1; } .gallery-grid { grid-template-columns:1fr; gap:15px; } .gallery-item,.gallery-item:nth-child(2),.gallery-item:nth-child(3) { min-height:390px; } .footer-grid { grid-template-columns:1fr; gap:22px; } .cart-toggle { right:16px; bottom:83px; } .whatsapp { right:17px; bottom:18px; } }
+    @media (prefers-reduced-motion:reduce) { *,*::before,*::after { animation-duration:.01ms !important; animation-iteration-count:1 !important; scroll-behavior:auto !important; transition-duration:.01ms !important; } }
+  </style>
+</head>
+<body>
+  <div class="topbar"><div class="wrap"><span>🐾 Atendimento com carinho em cada detalhe</span><span>Rua Souza Lobo, 107 · @bekapetz</span></div></div>
+  <header><nav class="wrap"><a class="brand" href="#inicio" aria-label="Bekapetz - início"><img class="brand-logo" src="assets/logo-bekapetz.png" alt="Logo Bekapetz">Bekapetz</a><div class="navlinks"><a href="#servicos">Serviços</a><a href="#galeria">Nossos pets</a><a href="#historia">Nossa história</a></div><a class="nav-cta" href="#servicos">Agende agora</a></nav></header>
+  <main>
+    <section class="hero" id="inicio"><div class="hero-paws" aria-hidden="true"><img class="walking-paw" src="assets/patinhas.gif" alt=""></div><div class="wrap hero-grid"><div><span class="eyebrow">🐾 Cuidado que faz a diferença!</span><h1>Amor, cuidado e <span>carinho</span> com seu pet.</h1><p>Na Bekapetz, cada banho é um momento de bem-estar. Um espaço seguro, higienizado e cheio de afeto para o seu melhor amigo.</p><div class="hero-actions"><a class="primary" href="#servicos">Ver serviços e valores <span>→</span></a><a class="soft-link" href="#galeria">Conheça nossos clientes felizes ↓</a></div></div><div class="hero-photo"><img src="assets/pet-1.jpg" alt="Pet após banho e tosa na Bekapetz"></div></div></section>
+    <section class="services" id="servicos"><div class="wrap"><div class="section-head"><span class="eyebrow">✦ Serviços e preços</span><h2>O cuidado ideal para o seu pet</h2><p>Escolha os serviços desejados e envie seu orçamento diretamente pelo WhatsApp.</p></div><div class="service-grid">
+      <article class="service-card"><div class="service-title"><span class="service-icon">🛁</span><div><h3>Banho + Tosa Higiênica</h3><small>Pelo curto</small></div></div><div class="options"><div class="service-option"><span>Pequeno porte</span><b class="price">R$ 35,00</b><button class="add" data-name="Banho + Tosa Higiênica — Pelo Curto (Pequeno porte)" data-price="35" aria-label="Adicionar banho pelo curto pequeno">+</button></div><div class="service-option"><span>Médio porte</span><b class="price">R$ 40,00</b><button class="add" data-name="Banho + Tosa Higiênica — Pelo Curto (Médio porte)" data-price="40" aria-label="Adicionar banho pelo curto médio">+</button></div><div class="service-option"><span>Grande porte</span><b class="price">R$ 100,00</b><button class="add" data-name="Banho + Tosa Higiênica — Pelo Curto (Grande porte)" data-price="100" aria-label="Adicionar banho pelo curto grande">+</button></div></div></article>
+      <article class="service-card"><div class="service-title"><span class="service-icon">🛁</span><div><h3>Banho + Tosa Higiênica</h3><small>Pelo longo</small></div></div><div class="options"><div class="service-option"><span>Pequeno porte</span><b class="price">R$ 45,00</b><button class="add" data-name="Banho + Tosa Higiênica — Pelo Longo (Pequeno porte)" data-price="45" aria-label="Adicionar banho pelo longo pequeno">+</button></div><div class="service-option"><span>Médio porte</span><b class="price">R$ 65,00</b><button class="add" data-name="Banho + Tosa Higiênica — Pelo Longo (Médio porte)" data-price="65" aria-label="Adicionar banho pelo longo médio">+</button></div><div class="service-option"><span>Grande porte</span><b class="price">R$ 150,00</b><button class="add" data-name="Banho + Tosa Higiênica — Pelo Longo (Grande porte)" data-price="150" aria-label="Adicionar banho pelo longo grande">+</button></div></div></article>
+      <article class="service-card"><div class="service-title"><span class="service-icon">✂</span><div><h3>Tosas</h3><small>Acabamento com carinho</small></div></div><div class="options"><div class="service-option"><span>Tosa na máquina</span><b class="price">R$ 40,00</b><button class="add" data-name="Tosa na máquina" data-price="40" aria-label="Adicionar tosa na máquina">+</button></div><div class="service-option"><span>Tosa na tesoura</span><b class="price">R$ 60,00</b><button class="add" data-name="Tosa na tesoura" data-price="60" aria-label="Adicionar tosa na tesoura">+</button></div><div class="service-option"><span>Tosa da raça</span><b class="price">Consultar</b><button class="add" data-name="Tosa da raça (valor a consultar)" data-price="0" aria-label="Adicionar tosa da raça">+</button></div></div></article>
+      <article class="service-card"><div class="service-title"><span class="service-icon">✚</span><div><h3>Banho Medicamentoso</h3><small>A partir de R$ 60,00</small></div></div><p class="note">Indicado para pets com problemas de pele, alergias e outras condições específicas. Utilizamos produtos de qualidade e acompanhamento profissional.</p><div style="margin-top:16px"><button class="primary add" style="width:100%;height:auto;border-radius:100px;font-size:.86rem" data-name="Banho Medicamentoso (a partir de R$ 60,00)" data-price="60">Adicionar ao orçamento</button></div></article>
+      <article class="service-card wide"><div class="service-title"><span class="service-icon">✦</span><div><h3>Serviços extras</h3><small>Um cuidado a mais para seu pet</small></div></div><div class="options extra-options"><div class="service-option"><span><i class="extra-icon">🪮</i>Desembolo</span><b class="price">R$ 20,00</b><button class="add" data-name="Desembolo" data-price="20" aria-label="Adicionar desembolo">+</button></div><div class="service-option"><span><i class="extra-icon">🧴</i>Hidratação</span><b class="price">R$ 25,00</b><button class="add" data-name="Hidratação" data-price="25" aria-label="Adicionar hidratação">+</button></div><div class="service-option"><span><i class="extra-icon">🪮</i>Remoção de pelo morto</span><b class="price">R$ 20,00</b><button class="add" data-name="Remoção de pelo morto" data-price="20" aria-label="Adicionar remoção de pelo morto">+</button></div></div></article>
+      <article class="service-card wide"><div class="service-title"><span class="service-icon">🐾</span><div><h3>Pet Sister</h3><small>Babá diária para o seu pet</small></div></div><p class="note">Um cuidado especial para acompanhar seu melhor amigo quando você precisar. Entre em contato para saber mais sobre esse serviço.</p><div style="margin-top:16px"><button class="primary add" style="width:100%;height:auto;border-radius:100px;font-size:.86rem" data-name="Pet Sister — babá diária (mais informações)" data-price="0">Quero saber mais</button></div></article>
+    </div></div></section>
+    <section class="benefits"><div class="wrap"><div class="section-head"><span class="eyebrow">Com todo o carinho</span><h2>Seu pet em ótimas mãos</h2></div><div class="benefit-grid"><article class="benefit-card"><h3>O que está incluso no banho</h3><ul class="check-list"><li>Shampoo adequado ao tipo de pelo</li><li>Secagem</li><li>Limpeza de ouvidos</li><li>Corte de unhas</li><li>Perfume</li><li>Muito amor e carinho!</li></ul></article><article class="benefit-card"><h3>Nossos diferenciais</h3><ul class="check-list"><li>Atendimento com carinho</li><li>Produtos de alta qualidade</li><li>Ambiente higienizado</li><li>Sem estresse para o seu pet</li></ul></article><aside class="benefit-card family"><span class="paw">♣</span><p>Aqui seu pet é tratado como família! ♥</p></aside></div></div></section>
+    <section class="bath-advantages"><div class="wrap"><div class="section-head"><span class="eyebrow">🐶 Saúde e bem-estar</span><h2>Por que dar banho no seu pet?</h2><p>Mais do que deixá-lo cheiroso: o banho regular é parte importante de uma rotina saudável e feliz.</p></div><div class="advantage-grid"><article class="advantage"><span class="advantage-icon">✨</span><h3>Pelo limpo e brilhante</h3><p>Remove sujeiras, oleosidade e odores, ajudando a manter a pelagem macia, bonita e bem cuidada.</p></article><article class="advantage"><span class="advantage-icon">🛡️</span><h3>Proteção e prevenção</h3><p>A higiene frequente ajuda na prevenção de parasitas e mantém a pele do seu amigo mais saudável.</p></article><article class="advantage"><span class="advantage-icon">🔎</span><h3>Detecção precoce</h3><p>O cuidado de perto facilita notar alterações na pele, nós, feridas ou sinais que merecem atenção.</p></article><article class="advantage"><span class="advantage-icon">💛</span><h3>Bem-estar e vínculo</h3><p>Um pet limpo e confortável se sente melhor. É também mais uma demonstração de carinho e cuidado.</p></article></div></div></section>
+    <section class="gallery" id="galeria"><div class="wrap"><div class="section-head"><span class="eyebrow">✦ Clientes felizes</span><h2>Carinho que dá para ver</h2><p>Alguns dos pets que já saíram da Bekapetz ainda mais lindos e cheios de estilo.</p></div><div class="gallery-grid"><figure class="gallery-item"><img src="assets/pet-2.jpg" alt="Cachorrinho feliz após banho na Bekapetz"><figcaption class="gallery-label">Prontos para brilhar ✨</figcaption></figure><figure class="gallery-item"><img src="assets/pet-3.jpg" alt="Pet com laços verdes após banho"><figcaption class="gallery-label">Muito estilo</figcaption></figure><figure class="gallery-item"><img src="assets/pet-4.jpg" alt="Cachorro após tosa"><figcaption class="gallery-label">Puro charme</figcaption></figure><figure class="gallery-item"><img src="assets/pet-5.jpg" alt="Pet com laço azul após banho"><figcaption class="gallery-label">Banho com amor</figcaption></figure></div></div></section>
+    <section class="story" id="historia"><div class="wrap story-grid"><div><span class="eyebrow">Nossa essência</span><h2>Quem somos?</h2></div><div class="story-text"><div class="story-card"><strong>Somos a Bekapetz! 🐶</strong><p>Um espaço de banho e tosa feito para pets que precisam de <strong>calma, carinho e respeito. 💛</strong></p><p>Aqui, cada pet é atendido no seu tempo, <strong>sem pressa e com muito amor.</strong></p></div></div></div></section>
+  </main>
+  <footer><div class="wrap footer-grid"><div><a class="brand" href="#inicio"><img class="brand-logo" src="assets/logo-bekapetz.png" alt="Logo Bekapetz">Bekapetz</a><p>Amor, cuidado e carinho com seu pet.<br>Seu pet merece o melhor! 🐾</p></div><div><span class="footer-title">Visite a Bekapetz</span><p>📍 Rua Souza Lobo, 107</p><a class="footer-link" href="https://www.instagram.com/bekapetz" target="_blank" rel="noopener">◎ @bekapetz</a></div><div><span class="footer-title">Agende agora</span><a class="footer-link" href="https://api.whatsapp.com/send/?phone=5547989183503" target="_blank" rel="noopener">◉ 47 98918-3503</a><p>Fale conosco pelo WhatsApp.</p></div></div></footer>
+  <button class="cart-toggle" id="cartToggle" aria-label="Abrir carrinho">🛒 <span>Orçamento</span><span class="cart-count" id="cartCount">0</span></button>
+  <aside class="cart-panel" id="cartPanel" aria-label="Seu orçamento"><div class="cart-head"><h2>Seu orçamento</h2><button class="close" id="closeCart" aria-label="Fechar carrinho">×</button></div><div class="cart-items" id="cartItems"><p class="empty">Seu orçamento está vazio.<br>Escolha um serviço para começar!</p></div><div class="cart-footer"><div class="total"><span>Total estimado</span><strong id="cartTotal">R$ 0,00</strong></div><button class="primary finish" id="finishOrder">Finalizar agendamento via WhatsApp</button></div></aside>
+  <a class="whatsapp" href="https://api.whatsapp.com/send/?phone=5547989183503&text=Ol%C3%A1%21%20Gostaria%20de%20tirar%20algumas%20d%C3%BAvidas%20sobre%20os%20servi%C3%A7os%20da%20Bekapetz." target="_blank" rel="noopener" aria-label="Falar com a Bekapetz pelo WhatsApp"><svg viewBox="0 0 32 32" aria-hidden="true"><path d="M16.01 3C8.83 3 3 8.83 3 16.01c0 2.29.6 4.52 1.73 6.48L3 29l6.7-1.69A12.96 12.96 0 0 0 16.01 29C23.18 29 29 23.18 29 16.01S23.18 3 16.01 3zm0 23.83c-2.04 0-4.03-.55-5.75-1.58l-.41-.24-3.98 1 1.05-3.87-.27-.4a10.76 10.76 0 1 1 9.36 5.09zm5.9-8.07c-.32-.16-1.9-.94-2.2-1.05-.29-.11-.5-.16-.71.16-.21.31-.81 1.05-.99 1.27-.18.21-.36.24-.67.08-1.82-.91-3.02-1.62-4.22-3.68-.32-.55.32-.51.91-1.7.11-.22.05-.42-.03-.58-.08-.16-.71-1.71-.97-2.34-.26-.62-.52-.54-.71-.55h-.61c-.21 0-.55.08-.84.39-.29.31-1.1 1.08-1.1 2.63s1.13 3.05 1.29 3.26c.16.21 2.22 3.39 5.37 4.76 1.99.86 2.77.94 3.76.79.6-.09 1.9-.78 2.17-1.53.27-.76.27-1.4.19-1.54-.08-.13-.29-.21-.6-.37z"/></svg></a>
+  <div class="toast" id="toast">Serviço adicionado ao orçamento!</div>
+  <script>
+    const cart=[]; const money=value=>value.toLocaleString('pt-BR',{style:'currency',currency:'BRL'});
+    const panel=document.getElementById('cartPanel'), items=document.getElementById('cartItems'), count=document.getElementById('cartCount'), total=document.getElementById('cartTotal'), toast=document.getElementById('toast');
+    function render(){ const sum=cart.reduce((acc,item)=>acc+item.price,0); count.textContent=cart.length; total.textContent=money(sum); items.innerHTML=cart.length?cart.map((item,i)=>`<div class="cart-item"><b>${item.name}</b><span>${item.price ? money(item.price) : 'Valor a consultar'}</span><button class="remove" data-index="${i}" aria-label="Remover ${item.name}">×</button></div>`).join(''):'<p class="empty">Seu orçamento está vazio.<br>Escolha um serviço para começar!</p>'; document.querySelectorAll('.remove').forEach(button=>button.addEventListener('click',()=>{cart.splice(button.dataset.index,1);render()})); }
+    function showToast(message){toast.textContent=message;toast.classList.add('show');setTimeout(()=>toast.classList.remove('show'),2200)}
+    document.querySelectorAll('.add').forEach(button=>button.addEventListener('click',()=>{cart.push({name:button.dataset.name,price:Number(button.dataset.price)});render();const cartButton=document.getElementById('cartToggle');cartButton.classList.remove('added');void cartButton.offsetWidth;cartButton.classList.add('added');showToast('Serviço adicionado ao orçamento!')}));
+    document.getElementById('cartToggle').addEventListener('click',()=>panel.classList.add('open')); document.getElementById('closeCart').addEventListener('click',()=>panel.classList.remove('open'));
+    document.getElementById('finishOrder').addEventListener('click',()=>{if(!cart.length){showToast('Adicione pelo menos um serviço para continuar.');return} const sum=cart.reduce((acc,item)=>acc+item.price,0); const lines=cart.map(item=>`- ${item.name} — ${item.price ? money(item.price) : 'valor a consultar'}`).join('\n'); const message=`Olá, Bekapetz! Gostaria de solicitar um agendamento para os seguintes serviços:\n\n${lines}\n\nTotal Estimado: ${money(sum)}`; window.open(`https://api.whatsapp.com/send/?phone=5547989183503&text=${encodeURIComponent(message)}`,'_blank','noopener');});
+    const revealItems=document.querySelectorAll('.service-card,.benefit-card,.advantage,.gallery-item,.story-card'); revealItems.forEach(item=>item.classList.add('reveal')); const observer=new IntersectionObserver(entries=>entries.forEach(entry=>{if(entry.isIntersecting){entry.target.classList.add('visible');observer.unobserve(entry.target)}}),{threshold:.12}); revealItems.forEach(item=>observer.observe(item));
+  </script>
+</body>
+</html>
